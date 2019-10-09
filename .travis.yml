@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - "12"
 before_script:
-  - npm i
+ - npm i
  - npm i ionic cordova
 script: 
  - npm run build
