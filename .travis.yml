@@ -5,7 +5,7 @@ before_script:
   - npm install
 script: 
  - npm run build
-- cp dist/conference-ionic/index.html dist/conference-ionic/404.html
+ - cp dist/conference-ionic/index.html dist/conference-ionic/404.html
 deploy:
   local-dir: dist/conference-ionic
   provider: pages
