@@ -1,18 +1,17 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Tab One
-    </ion-title>
-  </ion-toolbar>
+  
 </ion-header>
 
 
 
-<ion-content>
-    <img src="https://bootstraplogos.com/wp-content/uploads/edd/2017/11/logo-48.png" />
+<ion-content class="ion-text-center">
+    <img  src="https://bootstraplogos.com/wp-content/uploads/edd/2017/11/logo-48.png" />
 
-    <ion-title>fff<!--{{(programmeJournee|async)[0].date}}--></ion-title>
     
+    <ion-title><h1>DevFest Nantes 2018</h1></ion-title>
+    <ion-text color="dark">
+      <h5 >{{(programmeJournee|async)[0].date}} {{(programmeJournee|async)[(programmeJournee|async).length-1].date}}</h5>
+    </ion-text>
 
     <ion-button tab="tab2" expand="block" (click)="redirectToPageSessions()">Voir les sessions</ion-button>
     <ion-button tab="tab3" expand="block" (click)="redirectToPagePresentateurs()">Voir les presentateurs</ion-button>
