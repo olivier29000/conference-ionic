@@ -5,9 +5,9 @@ before_script:
   - npm install
 script: 
  - npm run build
- - cp dist/conference-ionic/index.html dist/conference-ionic/404.html
+ - cp www/conference-ionic/index.html www/conference-ionic/404.html
 deploy:
-  local-dir: dist/conference-ionic
+  local-dir: www/conference-ionic
   provider: pages
   skip-cleanup: true
   github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
