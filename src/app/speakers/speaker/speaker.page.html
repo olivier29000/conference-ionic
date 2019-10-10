@@ -7,7 +7,7 @@
 <ion-content>
 
     <ion-title><h1>{{speakerCourant?.name}}</h1></ion-title>
-<ion-img [src]="'https://devfest2018.gdgnantes.com' + speakerCourant?.photoUrl"></ion-img>
+<ion-img *ngIf="speakerCourant" [src]="'https://devfest2018.gdgnantes.com' + speakerCourant?.photoUrl"></ion-img>
 <ion-title><h4>biographies:</h4></ion-title>
   <ion-text></ion-text>
 <ion-title><h4>biographies:</h4></ion-title>
