@@ -7,6 +7,7 @@ const routes: Routes = [
   { path: 'sessions', loadChildren: './sessions/sessions.module#SessionsPageModule' },
   { path: 'conf/:id', loadChildren: './sessions/conf/conf.module#ConfPageModule' },
   { path: 'speakers', loadChildren: './speakers/speakers.module#SpeakersPageModule' },
+  { path: 'speakers/speaker/:id', loadChildren: './speakers/speaker/speaker.module#SpeakerPageModule' },
 ];
 
 @NgModule({

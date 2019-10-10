@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>speaker</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-title><h1>{{speakerCourant?.name}}</h1></ion-title>
+<ion-img [src]="'https://devfest2018.gdgnantes.com' + speakerCourant?.photoUrl"></ion-img>
+<ion-title><h4>biographies:</h4></ion-title>
+  <ion-text></ion-text>
+<ion-title><h4>biographies:</h4></ion-title>
+<div *ngFor="let session of listeDeSessions">
+<a (click)="redirectToPageSessionDetails(session.id)">
+  <ion-text></ion-text>
+</a>
+</div>
+</ion-content>

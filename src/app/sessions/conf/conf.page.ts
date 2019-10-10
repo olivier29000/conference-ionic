@@ -52,7 +52,7 @@ export class ConfPage implements OnInit {
   }
 
   redirectToPageSpeakerDetails(id){
-    this.router.navigate([`/speakers/${id}`]);
+    this.router.navigate([`/speakers/speaker/${id}`]);
   }
 
 }

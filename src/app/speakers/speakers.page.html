@@ -1,9 +1,11 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>speakers</ion-title>
-  </ion-toolbar>
-</ion-header>
+
 
 <ion-content>
-
+    <ion-list *ngFor="let speaker of listeDeSpeakers">
+        <ion-item (click)="redirectToPageSpeakerDetail(speaker.id)">
+          <ion-label>{{speaker.name}}</ion-label>
+          <ion-icon name="arrow-forward"></ion-icon>
+        </ion-item>
+        
+      </ion-list>
 </ion-content>
