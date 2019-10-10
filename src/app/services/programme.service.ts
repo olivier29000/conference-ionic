@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Journee } from '../models/journee';
+import { Session } from 'protractor';
 
 
 const httpOptions = {
@@ -24,6 +25,22 @@ export class ProgrammeService {
       httpOptions
        )
         ;
+  }
+
+
+  obtenirSessions():Observable<JSON>{
+    return this.http.get<JSON>(
+      'https://devfest-nantes-2018-api.cleverapps.io/sessions',
+      httpOptions
+       );
+  }
+
+
+  obtenirSpeakers():Observable<JSON>{
+    return this.http.get<JSON>(
+      'https://devfest-nantes-2018-api.cleverapps.io/speakers',
+      httpOptions
+       );
   }
 }
 

@@ -39,7 +39,7 @@ export class HomePage {
   }
 
   redirectToPagePresentateurs(){
-    this.router.navigate(['/presentateurs'])
+    this.router.navigate(['/speakers'])
   }
 
 }

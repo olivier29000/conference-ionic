@@ -11,7 +11,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
-import { SessionsPage } from './sessions/sessions.page';
 
 
 @NgModule({

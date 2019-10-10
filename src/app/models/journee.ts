@@ -5,7 +5,7 @@ export interface Journee {
 
     date: string,
     dateReadable: string,
-    listeDeTracks: Track[],
+    tracks: Track[],
     ListeDeTimeslots: TimesLot[]
       
 }

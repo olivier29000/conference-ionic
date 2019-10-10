@@ -1,0 +1,19 @@
+
+
+<ion-content>
+    <ion-title>{{sessionCourante.title}}</ion-title>
+    <ion-text>{{sessionCourante.description}}</ion-text>
+    <ion-img *ngIf="sessionCourante.image" [src]="'https://devfest2018.gdgnantes.com' + sessionCourante.image"></ion-img>
+
+
+    <ion-row *ngFor="let speaker of listeDeSpeakers" (click)="redirectToPageSpeakerDetails(speaker.id)">
+        <ion-col size="3">
+            <img [src]="'https://devfest2018.gdgnantes.com/' + speaker.photoUrl" />
+        </ion-col>
+        <ion-col size="9">
+            <ion-text>{{speaker.name}}</ion-text>
+        </ion-col>
+    </ion-row>
+
+    
+  </ion-content>

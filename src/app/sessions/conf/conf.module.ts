@@ -5,13 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { SessionsPage } from './sessions.page';
-import { Journee } from '../models/journee';
+import { ConfPage } from './conf.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: SessionsPage
+    component: ConfPage
   }
 ];
 
@@ -22,12 +21,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [SessionsPage],
-  exports:  [SessionsPage]
+  declarations: [ConfPage]
 })
-export class SessionsPageModule {
-
-  programmeJourneeCache=JSON.parse(localStorage.getItem('programmeJournee')) as Journee[];
-
-  
-}
+export class ConfPageModule {}

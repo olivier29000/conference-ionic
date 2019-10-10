@@ -5,5 +5,23 @@
 </ion-header>
 
 <ion-content>
-
+    
+  
+      
+          <ion-title>Liste Des Sessions</ion-title>
+        
+    <ion-list >
+        <a>
+        <ion-item *ngFor="let session of listeDeSessions" (click)='redirectToPageSessionDetails(session.id)'>
+          
+            <ion-label >{{session.title}}</ion-label>
+            <ion-icon name="arrow-dropright"></ion-icon>
+          
+          </ion-item>
+        </a>
+        
+          
+        
+    </ion-list>
+ 
 </ion-content>
