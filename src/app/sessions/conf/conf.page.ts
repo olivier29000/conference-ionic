@@ -14,9 +14,10 @@ export class ConfPage implements OnInit {
   id: string;
   listeDeSessions: Session[];
   sessionCourante: Session;
-  listeDeSpeakers: Speaker[]=[];
+  listeDeSpeakers: Speaker[] = [];
+  listeDeSpeakersCourant: Speaker[] = [];
 
-  constructor(private router:Router,private route: ActivatedRoute, private programmeService: ProgrammeService) {
+  constructor(private router: Router, private route: ActivatedRoute, private programmeService: ProgrammeService) {
     this.id = route.snapshot.paramMap.get("id")
   }
 
@@ -28,30 +29,47 @@ export class ConfPage implements OnInit {
       this.id = params.get('id');
     });
 
-    this.listeDeSessions = JSON.parse(localStorage.getItem('listeDeSessions')) as Session[];
+    if (localStorage.getItem("listeDeSessions")) {
+      this.listeDeSessions = JSON.parse(localStorage.getItem("listeDeSessions")) as Session[]
+    } else {
+      this.programmeService.obtenirSessions().subscribe((data) => {
+        Object.values(data).forEach(session => {
+          this.listeDeSessions.push(session)
+        })
+        localStorage.setItem("listeDeSessions", JSON.stringify(this.listeDeSessions))
+      });
+    }
+
     for (const session of this.listeDeSessions) {
       if (session.id.toString() === this.id) {
         this.sessionCourante = session;
         if (this.sessionCourante.speakers) {
-          this.programmeService.obtenirSpeakers().subscribe(data => {
-            Object.values(data).forEach(speaker => {
-              for (const idSpeakerDeLaSessionCourante of this.sessionCourante.speakers) {
-                if (speaker.id==idSpeakerDeLaSessionCourante) {
-                  this.listeDeSpeakers.push(speaker);
-                  console.log(this.listeDeSpeakers)
-                }
-              }
-              
-              
+          if (localStorage.getItem("listeDeSpeakers")) {
+            this.listeDeSpeakers = JSON.parse(localStorage.getItem("listeDeSpeakers")) as Speaker[]
+          } else {
+            this.programmeService.obtenirSpeakers().subscribe(data => {
+              Object.values(data).forEach(speaker => {
+                this.listeDeSpeakers.push(speaker);
+
+                localStorage.setItem("listeDeSpeakers", JSON.stringify(this.listeDeSpeakers))
+              })
             })
-          })
+
+          }
+          for (const speaker of this.listeDeSpeakers) {
+            for (const idSpeakerDeLaSessionCourante of this.sessionCourante.speakers) {
+              if (speaker.id == idSpeakerDeLaSessionCourante) {
+                this.listeDeSpeakersCourant.push(speaker);
+              }
+            }
+          }
 
         }
       }
     }
   }
 
-  redirectToPageSpeakerDetails(id){
+  redirectToPageSpeakerDetails(id) {
     this.router.navigate([`/speakers/speaker/${id}`]);
   }
 

@@ -7,13 +7,13 @@
 <ion-content>
 
     <ion-title><h1>{{speakerCourant?.name}}</h1></ion-title>
-<ion-img *ngIf="speakerCourant" [src]="'https://devfest2018.gdgnantes.com' + speakerCourant?.photoUrl"></ion-img>
+<ion-img *ngIf="speakerCourant" [src]="'https://devfest2018.gdgnantes.com/' + speakerCourant?.photoUrl"></ion-img>
 <ion-title><h4>biographies:</h4></ion-title>
-  <ion-text></ion-text>
-<ion-title><h4>biographies:</h4></ion-title>
-<div *ngFor="let session of listeDeSessions">
+  <ion-text>{{speakerCourant?.bio}}</ion-text>
+<ion-title><h4>Presentations:</h4></ion-title>
+<div *ngFor="let session of listeDeSessionsCourantes">
 <a (click)="redirectToPageSessionDetails(session.id)">
-  <ion-text></ion-text>
+  <ion-text>{{session?.title}}</ion-text>
 </a>
 </div>
 </ion-content>

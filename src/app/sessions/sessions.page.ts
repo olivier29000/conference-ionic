@@ -18,12 +18,18 @@ export class SessionsPage implements OnInit {
 
   ngOnInit() {
 
-    this.programmeService.obtenirSessions().subscribe((data) => {
-      Object.values(data).forEach(session => {
-        this.listeDeSessions.push(session)
-      })
-      localStorage.setItem("listeDeSessions",JSON.stringify(this.listeDeSessions))
-    });
+    if (localStorage.getItem("listeDeSessions")) {
+      this.listeDeSessions=JSON.parse(localStorage.getItem("listeDeSessions")) as Session[]
+    } else {
+      this.programmeService.obtenirSessions().subscribe((data) => {
+        Object.values(data).forEach(session => {
+          this.listeDeSessions.push(session)
+        })
+        localStorage.setItem("listeDeSessions",JSON.stringify(this.listeDeSessions))
+      });
+    }
+
+    
   }
 
   redirectToPageSessionDetails(id) {

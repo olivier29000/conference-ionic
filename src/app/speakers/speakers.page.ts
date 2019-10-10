@@ -14,14 +14,22 @@ export class SpeakersPage implements OnInit {
 
   constructor(private programmeService:ProgrammeService, private router:Router) { }
 
+
+
+
   ngOnInit() {
-    this.programmeService.obtenirSpeakers().subscribe(data => {
-      Object.values(data).forEach(speaker => {
-            this.listeDeSpeakers.push(speaker);
+    if (localStorage.getItem("listeDeSpeakers")) {
+      this.listeDeSpeakers=JSON.parse(localStorage.getItem("listeDeSpeakers")) as Speaker[]
+    } else {
+      this.programmeService.obtenirSpeakers().subscribe(data => {
+        Object.values(data).forEach(speaker => {
+              this.listeDeSpeakers.push(speaker);
+          })
+          
+          localStorage.setItem("listeDeSpeakers",JSON.stringify(this.listeDeSpeakers))
         })
-        
-        
-      })
+    }
+    
     
   }
 
