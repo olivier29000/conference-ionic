@@ -42,4 +42,12 @@ export class HomePage {
     this.router.navigate(['/speakers'])
   }
 
+  redirectToPagePriseDeNote(){
+    this.router.navigate(['/prise-de-note'])
+  }
+
+  redirectToPageInfoTelephone(){
+    this.router.navigate(['/info-telephone'])
+  }
+
 }

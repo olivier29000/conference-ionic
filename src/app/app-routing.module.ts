@@ -8,6 +8,8 @@ const routes: Routes = [
   { path: 'conf/:id', loadChildren: './sessions/conf/conf.module#ConfPageModule' },
   { path: 'speakers', loadChildren: './speakers/speakers.module#SpeakersPageModule' },
   { path: 'speakers/speaker/:id', loadChildren: './speakers/speaker/speaker.module#SpeakerPageModule' },
+  { path: 'prise-de-note', loadChildren: './prise-de-note/prise-de-note.module#PriseDeNotePageModule' },
+  { path: 'info-telephone', loadChildren: './info-telephone/info-telephone.module#InfoTelephonePageModule' },
 ];
 
 @NgModule({
