@@ -78,13 +78,7 @@ ngOnInit() {
 
     }
   }
-  let contact: Contact = this.contacts.create();
-  contact.name = new ContactName(null, this.speakerCourant.name);
-  contact.pickContact().then(
-    () => {alert('contact existe'),
-  this.aContactSpeakerCourant=true},
-    (error: any) => alert('nexiste pas')
-  );
+  
 }
 
 creerContact(nom){
