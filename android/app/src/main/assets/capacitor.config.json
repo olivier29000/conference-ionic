@@ -1,0 +1,7 @@
+{
+  "appId": "fr.patatitator",
+  "appName": "conference-devfest-olivier",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www"
+}

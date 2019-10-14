@@ -5,5 +5,28 @@
 </ion-header>
 
 <ion-content>
+    <ion-label position="stacked">Notes</ion-label>
+    
+    <ion-textarea [(ngModel)]="notesEnrigistrees" style="height:50%"></ion-textarea>
+    <ion-button (click)="enregistrer(notesEnrigistrees)" >Enregistrer</ion-button>
 
-</ion-content>
+    <img [src]="photo" >
+  
+    <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+      <ion-fab-button (click)="takePicture()">
+        <ion-icon name="camera"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button (click)="takeGallerie()">
+        <ion-icon name="images"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+    <ion-list *ngFor="let photoN of listeDesPhotoEnString">
+      <ion-item>
+        <ion-img [src]="photoN"></ion-img>
+      </ion-item>
+      
+    </ion-list>
+        
+      
+  </ion-content>

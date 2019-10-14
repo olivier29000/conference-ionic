@@ -29,8 +29,6 @@ export class SpeakersPage implements OnInit {
           localStorage.setItem("listeDeSpeakers",JSON.stringify(this.listeDeSpeakers))
         })
     }
-    
-    
   }
 
   redirectToPageSpeakerDetail(id){

@@ -8,6 +8,10 @@
 
     <ion-title><h1>{{speakerCourant?.name}}</h1></ion-title>
 <ion-img *ngIf="speakerCourant" [src]="'https://devfest2018.gdgnantes.com/' + speakerCourant?.photoUrl"></ion-img>
+<ion-button (click)="creerContact(speakerCourant.name)">
+  Creer un Contact
+</ion-button>
+<ion-text>{{aContactSpeakerCourant}}</ion-text>
 <ion-title><h4>biographies:</h4></ion-title>
   <ion-text>{{speakerCourant?.bio}}</ion-text>
 <ion-title><h4>Presentations:</h4></ion-title>
@@ -16,4 +20,5 @@
   <ion-text>{{session?.title}}</ion-text>
 </a>
 </div>
+
 </ion-content>

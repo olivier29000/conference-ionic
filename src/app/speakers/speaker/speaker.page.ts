@@ -4,6 +4,8 @@ import { ProgrammeService } from 'src/app/services/programme.service';
 import { Speaker } from 'src/app/models/speaker';
 import { Session } from 'src/app/models/session';
 import { Observable } from 'rxjs';
+import { Contacts, Contact, ContactField, ContactName } from '@ionic-native/contacts/ngx';
+
 
 @Component({
   selector: 'app-speaker',
@@ -14,21 +16,26 @@ export class SpeakerPage implements OnInit {
 
   id: string;
   speakerCourant: Speaker;
+  aContactSpeakerCourant: boolean;
   listeDeSessions: Session[] = [];
   listeDeSessionsCourantes: Session[] = [];
   listeDeSpeakers:Speaker[];
 
   // Injection du service ActivatedRoute
-  constructor(private route: ActivatedRoute, private programmeService: ProgrammeService, private router: Router) {
+  constructor(private contacts: Contacts,private route: ActivatedRoute, private programmeService: ProgrammeService, private router: Router) {
 
 
     this.id = route.snapshot.paramMap.get("id")
   }
 
-
+  
+  
   
 
 ngOnInit() {
+  
+
+  
   // abonnement au changement de route avec réutilisation du composant par le routeur.
   this.route.paramMap.subscribe((params: ParamMap) => {
     // récupération du paramètre id
@@ -71,6 +78,22 @@ ngOnInit() {
 
     }
   }
+  let contact: Contact = this.contacts.create();
+  contact.name = new ContactName(null, this.speakerCourant.name);
+  contact.pickContact().then(
+    () => {alert('contact existe'),
+  this.aContactSpeakerCourant=true},
+    (error: any) => alert('nexiste pas')
+  );
+}
+
+creerContact(nom){
+  let contact: Contact = this.contacts.create();
+  contact.name = new ContactName(null, nom);
+  contact.save().then(
+    () => alert('Contact saved!'),
+    (error: any) => alert('Error saving contact')
+  );
 }
 
 redirectToPageSessionDetails(id){
